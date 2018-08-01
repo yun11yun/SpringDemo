@@ -17,45 +17,23 @@
     <!--自动加载xml文件中配置的action-->
     <constant name="struts.convention.classes.reload" value="true"/>
 
+    <package name="exercise" namespace="/" extends="struts-default">
 
-    
+        <!--default-action-ref标签只能位于package的顶部，不能位于任何action之下-->
+        <default-action-ref name="notfound"/>
 
-
-    <package name="UserAction" namespace="/user" extends="struts-default">
-        <global-results>
+        <action name="user_*" class="com.yun11yun.action.UserAction" method="{1}">
             <result name="success">/success.jsp</result>
-            <result name="error">/error.jsp</result>
-        </global-results>
-        <action name="login" class="com.yun11yun.action.LoginAction">
+        </action>
+
+        <action name="some" class="com.yun11yun.action.UserAction">
+            <result name="success">/success.jsp</result>
+            <allowed-methods>save</allowed-methods>
+        </action>
+
+        <action name="notfound">
+            <result>/404.jsp</result>
         </action>
     </package>
-    
-    <package name="ExerciseAciton" namespace="/" extends="struts-default">
 
-        <interceptors>
-            <interceptor-stack name="appDefault">
-                <interceptor-ref name="timer"/>
-                <interceptor-ref name="logger"/>
-                <interceptor-ref name="defaultStack"/>
-            </interceptor-stack>
-        </interceptors>
-
-        <global-results>
-            <result name="securityerror">/securityerror.jsp</result>
-            <result name="error">/error.jsp</result>
-        </global-results>
-        <global-exception-mappings>
-            <exception-mapping exception="java.lang.Exception" result="error"/>
-        </global-exception-mappings>
-
-        
-        <action name="index">
-            <result>/index.jsp</result>
-        </action>
-
-        <action name="register" class="com.yun11yun.action.RegisterAction" method="execute">
-            <result name="success">/thank.jsp</result>
-            <result name="input">/register.jsp</result>
-        </action>
-    </package>
 </struts>
