@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd"
+       default-lazy-init="true">
+
+    <bean name="user" class="com.yun11yun.bean.User" factory-method="createUser" scope="prototype">
+        <property name="name" value="wentao"/>
+        <property name="age" value="0"/>
+
+        <property name="phone" ref="phone"/>
+
+        <!--InnerBean-->
+        <property name="phone.number" value="15771701854">
+            <!--<bean class="com.yun11yun.bean.Phone">-->
+                <!--<property name="number" value="15771701854"/>-->
+            <!--</bean>-->
+        </property>
+
+        <property name="otherPhones">
+            <list>
+                <bean class="com.yun11yun.bean.Phone">
+                    <property name="number" value="18078576435"/>
+                </bean>
+            </list>
+        </property>
+
+    </bean>
+    
+    <bean id="parent" class="com.yun11yun.bean.ComplexObject">
+        <property name="adminEmails">
+            <props>
+                <prop key="administrator">administrator@example.com</prop>
+                <prop key="support">support@example.com</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="child" parent="parent">
+        <property name="adminEmails">
+            <props merge="true">
+                <prop key="sales">sales@example.com</prop>
+                <prop key="support">support@example.co.uk</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean name="phone" class="com.yun11yun.bean.Phone" scope="prototype">
+        <!--<property name="number" value="15771701854"/>-->
+    </bean>
+    <bean name="myConfig" class="com.yun11yun.bean.MyConfig">
+        <property name="config">
+            <props>
+                <prop key="driver">com.mysql.jdbc.Driver</prop>
+                <prop key="url">jdbc:mysql://192.168.56.101:3306/database</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean name="person" class="com.yun11yun.bean.Person" scope="prototype"
+          p:firstName="Smith"
+          p:lastName="Bob"
+          p:email="931431489@qq.com"
+          p:age="12"
+    />
+
+    <aop:config>
+        <aop:aspect id="say" ref="phone">
+
+        </aop:aspect>
+    </aop:config>
+
+</beans>
