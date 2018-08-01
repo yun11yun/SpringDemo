@@ -17,6 +17,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+
+    <!--定义Spring版本号-->
+    <spring.version>5.0.7.RELEASE</spring.version>
+
+    <!--定义Struts2版本号-->
+    <struts.version>2.5.16</struts.version>
   </properties>
 
   <dependencies>
@@ -68,31 +74,31 @@
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-core</artifactId>
-      <version>2.5.16</version>
+      <version>${struts.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-json-plugin</artifactId>
-      <version>2.5.16</version>
+      <version>${struts.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-spring-plugin</artifactId>
-      <version>2.5.16</version>
+      <version>${struts.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-convention-plugin</artifactId>
-      <version>2.5.16</version>
+      <version>${struts.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.struts</groupId>
       <artifactId>struts2-junit-plugin</artifactId>
-      <version>2.5.16</version>
+      <version>${struts.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -100,44 +106,44 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>5.0.7.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>5.0.7.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
-      <version>5.0.7.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-      <version>5.0.7.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <version>5.0.7.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
-      <version>5.0.7.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
-      <version>5.0.7.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>5.0.7.RELEASE</version>
+      <version>${spring.version}</version>
       <scope>test</scope>
     </dependency>
 
@@ -191,6 +197,26 @@
 
   </dependencies>
 
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>alfresco-public</id>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>alfresco-public-snapshots</id>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>beardedgeeks-releases</id>
+      <url>http://beardedgeeks.googlecode.com/svn/repository/releases</url>
+    </pluginRepository>
+  </pluginRepositories>
+
   <build>
     <finalName>SpringDemo</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -230,12 +256,12 @@
 
         <plugin>
           <groupId>org.apache.tomcat.maven</groupId>
-          <artifactId>tomcat7-maven-plugin</artifactId>
-          <version>2.2</version>
+          <artifactId>tomcat8-maven-plugin</artifactId>
+          <version>3.0-r1756463</version>
           <configuration>
             <path>/</path>
             <port>8080</port>
-            <server>tomcat7</server>
+            <server>tomcat8</server>
           </configuration>
           <executions>
             <execution>

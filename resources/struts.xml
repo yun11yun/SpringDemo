@@ -17,6 +17,10 @@
     <!--自动加载xml文件中配置的action-->
     <constant name="struts.convention.classes.reload" value="true"/>
 
+
+    
+
+
     <package name="UserAction" namespace="/user" extends="struts-default">
         <global-results>
             <result name="success">/success.jsp</result>
