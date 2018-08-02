@@ -20,7 +20,21 @@
     <package name="exercise" namespace="/" extends="struts-default">
 
         <!--default-action-ref标签只能位于package的顶部，不能位于任何action之下-->
-        <default-action-ref name="notfound"/>
+        <!--<default-action-ref name="notfound"/>-->
+        
+        <global-results>
+            <result name="SQLException"></result>
+            <result name="Exception">/exception.jsp</result>
+        </global-results>
+        
+        <global-exception-mappings>
+            <exception-mapping exception="java.sql.SQLException" result="SQLException"></exception-mapping>
+            <exception-mapping exception="java.lang.Exception" result="Exception"></exception-mapping>
+        </global-exception-mappings>
+
+        <action name="exception" class="com.yun11yun.action.ExceptionAction" method="createException">
+            <result name="success" type="dispatcher">/success.jsp</result>
+        </action>
 
         <action name="user_*" class="com.yun11yun.action.UserAction" method="{1}">
             <result name="success">/success.jsp</result>
@@ -39,9 +53,9 @@
 
         </action>
 
-        <action name="notfound">
-            <result>/404.jsp</result>
-        </action>
+        <!--<action name="notfound">-->
+            <!--<result>/404.jsp</result>-->
+        <!--</action>-->
     </package>
 
 </struts>
