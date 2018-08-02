@@ -3,13 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--c3p0连接池配置-->
-    <bean name="c3p0dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
-        <property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.56.101:1521:artemis"/>
-        <property name="user" value="c##wentao"/>
-        <property name="password" value="ai91znqes"/>
-    </bean>
+    <!--&lt;!&ndash;c3p0连接池配置&ndash;&gt;-->
+    <!--<bean name="c3p0dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">-->
+        <!--<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>-->
+        <!--<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.56.101:1521:artemis"/>-->
+        <!--<property name="user" value="c##wentao"/>-->
+        <!--<property name="password" value="ai91znqes"/>-->
+    <!--</bean>-->
 
-    <alias name="c3p0dataSource" alias="comboPooledDataSource"/>
+    <!--<alias name="c3p0dataSource" alias="comboPooledDataSource"/>-->
 </beans>

@@ -24,7 +24,7 @@
   <!--Spring配置文件位置-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml</param-value>
+    <param-value>classpath*:applicationContext*.xml</param-value>
   </context-param>
 
   <!--Struts2核心过滤器-->
@@ -36,6 +36,5 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
 
 </web-app>
