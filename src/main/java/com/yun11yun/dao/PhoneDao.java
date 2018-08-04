@@ -9,4 +9,8 @@ public class PhoneDao {
     public void save(Phone phone) {
         System.out.println(phone.getNumber());
     }
+
+    public void query(String name) {
+        System.out.println("PhoneDao's query method is run");
+    }
 }

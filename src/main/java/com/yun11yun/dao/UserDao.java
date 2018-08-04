@@ -9,4 +9,8 @@ public class UserDao {
         System.out.println("user save()");
     }
 
+    public void queryById(String id) {
+        System.out.println("UserDao's queryById is run");
+    }
+
 }

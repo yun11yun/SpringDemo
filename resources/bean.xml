@@ -61,6 +61,12 @@
         </property>
     </bean>
 
+    <bean name="manager" class="com.yun11yun.bean.Manager" scope="prototype">
+        <property name="name">
+            <null/>
+        </property>
+    </bean>
+
     <bean name="person" class="com.yun11yun.bean.Person" scope="prototype"
           p:firstName="Smith"
           p:lastName="Bob"

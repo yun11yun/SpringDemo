@@ -28,4 +28,9 @@ public class DaoTest {
         Phone phone = SpringUtils.getBean("phone", Phone.class);
         phoneDao.save(phone);
     }
+
+    @Test
+    public void testQueryMethod() {
+        userDao.queryById("123");
+    }
 }

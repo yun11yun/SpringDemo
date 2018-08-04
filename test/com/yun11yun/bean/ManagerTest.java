@@ -20,7 +20,8 @@ public class ManagerTest {
     private Manager manager;
 
     @Test
-    public void say() {
-        manager.say();
+    public void testInitialize() {
+        assertNotNull("The Manager's bean should not be null.", manager);
+        assertNull("The name property of the Manager's bean should be null",manager.getName());
     }
 }

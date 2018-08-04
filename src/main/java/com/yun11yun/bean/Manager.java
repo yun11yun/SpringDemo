@@ -6,8 +6,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Repository;
 
-@Repository("manager")
-@Scope(value = "prototype") // 设置作用范围
 public class Manager implements Human {
 
     @Value("manager")
